@@ -142,7 +142,7 @@ public class DragImage : MonoBehaviour
 			float A3 = D3.x * D3.z;
 			ratio = A3 / sizeImageTarget2D;
 		}		
-		Debug.Log ("Ratio : " + ratio);
+	//	Debug.Log ("Ratio : " + ratio);
 		return ratio;
 	}
 

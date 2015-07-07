@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UiImage = UnityEngine.UI.Image;
 using System.Collections;
-
+using Vuforia;
 /// <summary>
 /// This class implements the IVirtualButtonEventHandler interface and
 /// contains the logic to swap materials for the teapot model depending on what 

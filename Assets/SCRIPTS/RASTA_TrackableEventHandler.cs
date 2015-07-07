@@ -7,6 +7,7 @@ Confidential and Proprietary - Qualcomm Connected Experiences, Inc.
 using UnityEngine;
 using UiImage = UnityEngine.UI.Image;
 using System.Collections;
+using Vuforia;
 
 
 /// <summary>

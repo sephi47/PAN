@@ -6,6 +6,7 @@ Confidential and Proprietary - Qualcomm Connected Experiences, Inc.
 
 using UnityEngine;
 using System.Collections;
+using Vuforia;
 
 /// <summary>
 /// A custom handler that implements the ITrackableEventHandler interface.

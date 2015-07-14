@@ -3,32 +3,39 @@ using System.Collections;
 
 public class Lustre_Controller : MonoBehaviour {
 
-	/*public GameObject lustreCasse;
-	public GameObject lustre;
+	// pan et pan renderer correspond à la bulle PAN qui s'afficechera pendant le coup de feu
 	public GameObject pan;
-	private Renderer lustreCasseRenderer;
-	private Renderer lustreRenderer;
-	private Renderer panRenderer;*/
-	public AudioSource son;
-	//public float speed;
-	//private bool end;
-	//float alphaChannel;
+	private Renderer panRenderer;
 
+	// corespond au son du narrateur
+	public AudioSource son;
+
+
+
+	
+	// passe à true si on scan le lustre et reste à true ensuite. au démarrage = false jusqu'au flashage
+	private bool isFlashed;
+
+	// permet de récupérer via un autre script si l'image est bien sur la cible
+	public bool IsFlashed
+	{
+		get { return this.isFlashed;}
+		set { isFlashed = value;}
+	}
 
 	// Use this for initialization
-	/*void Start () 
+	void Start () 
 	{
-		lustreCasseRenderer = lustreCasse.GetComponent<Renderer> ();
-		lustreRenderer = lustre.GetComponent<Renderer> ();
+		this.isFlashed = false;
 		panRenderer = pan.GetComponent<Renderer> ();
 
-		
-		alphaChannel = 0.0f;
-		lustreCasseRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, alphaChannel);
+		// alpha du pan = transparent
 		panRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 0.0f);
-	}*/
 
-	/*IEnumerator RendererPAN (float delayEnable, float delayDisable)
+
+	}
+
+	IEnumerator RendererPAN (float delayEnable, float delayDisable)
 	{
 		
 		yield return new WaitForSeconds(delayEnable);
@@ -39,43 +46,28 @@ public class Lustre_Controller : MonoBehaviour {
 		panRenderer.enabled = false;
 	}
 
-
-	IEnumerator RendererLustreCasse (float delayEnable, float delayDisable)
-	{
-		lustreCasseRenderer.material.color = new Color(1.0f,1.0f,1.0f,alphaChannel);
-		Debug.Log (lustreCasseRenderer.material.color);
-		yield return new WaitForSeconds(delayEnable);
-		if (!end) 
-		{
-			alphaChannel += Time.deltaTime;
-			if (alphaChannel >= 1)
-				alphaChannel = 1;
-		}
-
-		yield return new WaitForSeconds(delayDisable);
-		end = true;
-		alphaChannel -= Time.deltaTime;
-		if (alphaChannel <= 0)
-			alphaChannel = 0;
-		//lustreCasseRenderer.material.color = new Color(1.0f,1.0f,1.0f,alphaChannel);
-	}*/
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
 
-		// si l'image augmenté est visible alors on joue le son
+		// si l'image augmenté est visible et que on est pas entrain de jouer l'animation alors on  play
 		if (renderer.isVisible) 
 		{
-			
-		//	StartCoroutine (RendererLustreCasse (3.0f, 17.0f));
-		//	StartCoroutine (RendererPAN(1.2f, 1.0f));
+			// leve le drapeaux pour dire que l'animation a été joué au moins une fois
+			this.isFlashed = true;
+
+
+		
+
 			//si la voix off n'est pas en train de jouer, on la lance, sinon c'est qu'elle est déjà en cours!
 			if (!son.isPlaying) 
 			{
-			//	end = false;
+				// coroutine pour afficher PAN au moment du coup de feu
+				StartCoroutine (RendererPAN(1.2f, 1.0f));
 				Handheld.Vibrate ();
 				son.Play ();			
 			}
+
 		}
 	}
 }

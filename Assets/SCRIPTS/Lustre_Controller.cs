@@ -23,27 +23,31 @@ public class Lustre_Controller : MonoBehaviour {
 		set { isFlashed = value;}
 	}
 
-	// Use this for initialization
-	void Start () 
+	void Init()
 	{
-		this.isFlashed = false;
-		panRenderer = pan.GetComponent<Renderer> ();
 
 		// alpha du pan = transparent
 		panRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 0.0f);
+	}
+	// Use this for initialization
+	void Start () 
+	{
+		
+		this.isFlashed = false;
+		panRenderer = pan.GetComponent<Renderer> ();
+		Init ();
+
 
 
 	}
 
-	IEnumerator RendererPAN (float delayEnable, float delayDisable)
+	IEnumerator RendererPAN (float delayEnable)
 	{
 		
 		yield return new WaitForSeconds(delayEnable);
 		panRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
 
 		pan.transform.position += Random.insideUnitSphere * 10 ;
-		yield return new WaitForSeconds(delayDisable);
-		panRenderer.enabled = false;
 	}
 
 	// Update is called once per frame
@@ -63,11 +67,18 @@ public class Lustre_Controller : MonoBehaviour {
 			if (!son.isPlaying) 
 			{
 				// coroutine pour afficher PAN au moment du coup de feu
-				StartCoroutine (RendererPAN(1.2f, 1.0f));
+				StartCoroutine (RendererPAN(1.2f));
 				Handheld.Vibrate ();
 				son.Play ();			
 			}
 
+		}
+		else
+		{
+			if (!son.isPlaying) 
+			{
+				Init ();
+			}
 		}
 	}
 }

@@ -17,13 +17,13 @@ ITrackableEventHandler
 	
 	private TrackableBehaviour mTrackableBehaviour;
 
-	private bool voixOff;
+	//private bool voixOff;
 	
 	#endregion // PRIVATE_MEMBER_VARIABLES
 	
 	#region PUBLIC_MEMBER_VARIABLES
 	
-	public AudioSource voixOff_Bar;
+	//public AudioSource voixOff_Bar;
 	
 	#endregion // PUBLIC_MEMBER_VARIABLES
 	
@@ -92,10 +92,10 @@ ITrackableEventHandler
 		
 		Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
 
-		// si la voix off n'est pas déjà en cours, on la lance!
+		/*// si la voix off n'est pas déjà en cours, on la lance!
 		if (!voixOff_Bar.isPlaying) {
 			voixOff_Bar.Play ();
-		}
+		}*/
 
 	}
 	

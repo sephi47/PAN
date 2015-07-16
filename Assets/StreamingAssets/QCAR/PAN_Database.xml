@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="cougars_page10-11" size="28.000000 16.209686" />
+    <ImageTarget name="noir24" size="130.000000 71.220627" />
+    <ImageTarget name="noir23" size="130.000000 74.759422" />
+    <ImageTarget name="noir22" size="130.000000 72.238892" />
+    <ImageTarget name="noir21" size="60.000000 66.123856" />
+    <ImageTarget name="noir20" size="60.000000 68.302322" />
     <ImageTarget name="noir19" size="80.000000 86.479187" />
     <ImageTarget name="noir18" size="80.000000 89.205986" />
     <ImageTarget name="noir17" size="150.000000 83.831131" />

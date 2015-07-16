@@ -54,6 +54,14 @@ IVirtualButtonEventHandler
 				bandeau.gameObject.SetActive(true);
 				Debug.Log("bandeau is active = "+ bandeau.IsActive());
 				break;
+
+			case "cougars_button":
+			
+			//StartCoroutine(PlayAnim());
+			Handheld.PlayFullScreenMovie ("animation_zoom_bar_cougars.mp4", Color.black, FullScreenMovieControlMode.Hidden, FullScreenMovieScalingMode.AspectFit);
+			bandeau.gameObject.SetActive(true);
+			Debug.Log("bandeau is active = "+ bandeau.IsActive());
+			break;
 		}
 	}
 

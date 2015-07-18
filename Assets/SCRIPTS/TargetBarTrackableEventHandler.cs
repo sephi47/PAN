@@ -137,7 +137,8 @@ namespace Vuforia
 			// voix off finish
 			voixOffAlreadyPlays = false;
 			// si l'audio est joué alors on mets en pause sinon on fait rien
-			if (dialogueAveugle.isPlaying || dialogueRasta.isPlaying || dialogueCougars.isPlaying || dialogueBarman.isPlaying || dialogueMecBourre.isPlaying) 
+			//if (dialogueAveugle.isPlaying || dialogueRasta.isPlaying || dialogueCougars.isPlaying || dialogueBarman.isPlaying || dialogueMecBourre.isPlaying) 
+			if (dialogueAveugle.isPlaying)
 			{
 				dialogueAveugle.Pause ();
 				dialogueRasta.Pause ();

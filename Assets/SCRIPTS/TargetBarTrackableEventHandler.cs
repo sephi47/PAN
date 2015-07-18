@@ -16,10 +16,14 @@ namespace Vuforia
     {
         #region PRIVATE_MEMBER_VARIABLES
  
+		
+		private bool voixOffAlreadyPlays;
+
         private TrackableBehaviour mTrackableBehaviour;
     
         #endregion // PRIVATE_MEMBER_VARIABLES
 
+		public AudioSource voixOff_Bar;
 		public AudioSource dialogueAveugle;
 		public AudioSource dialogueRasta;
 		public AudioSource dialogueCougars;
@@ -30,6 +34,8 @@ namespace Vuforia
     
         void Start()
         {
+			
+			voixOffAlreadyPlays = false;
             mTrackableBehaviour = GetComponent<TrackableBehaviour>();
             if (mTrackableBehaviour)
             {
@@ -88,6 +94,17 @@ namespace Vuforia
             }
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
+		
+			// évite la répétition si on reste sur la target
+			if (!voixOffAlreadyPlays)
+			{
+				// si la voix off n'est pas déjà en cours on lance la voix off
+				if (!voixOff_Bar.isPlaying) 
+				{
+					voixOff_Bar.Play ();
+					voixOffAlreadyPlays = true;
+				}
+			}
 
 			// joue les paroles d'ambiances
 			dialogueAveugle.Play();
@@ -117,14 +134,17 @@ namespace Vuforia
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
 
+			// voix off finish
+			voixOffAlreadyPlays = false;
 			// si l'audio est joué alors on mets en pause sinon on fait rien
-			if (dialogueAveugle.isPlaying | dialogueRasta.isPlaying | dialogueCougars.isPlaying | dialogueBarman.isPlaying | dialogueMecBourre.isPlaying) 
+			if (dialogueAveugle.isPlaying || dialogueRasta.isPlaying || dialogueCougars.isPlaying || dialogueBarman.isPlaying || dialogueMecBourre.isPlaying) 
 			{
 				dialogueAveugle.Pause ();
 				dialogueRasta.Pause ();
 				dialogueCougars.Pause ();
 				dialogueBarman.Pause ();
 				dialogueMecBourre.Pause ();
+
 			}
 		}
 

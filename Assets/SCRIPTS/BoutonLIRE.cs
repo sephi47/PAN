@@ -4,6 +4,7 @@ using System.Collections;
 /* Script qui permet la gestion du bouton Jouer du Menu */
 public class BoutonLIRE : MonoBehaviour {
 
+	public AudioSource Pan;
 
 	//public GUITexture lireClicked;
 	//public GUIText loadingDots;
@@ -17,6 +18,7 @@ public class BoutonLIRE : MonoBehaviour {
 		//loadingDots.enabled = true;
 		//Application.LoadLevelAsync("cameraRA"); //on charge la scène de jeu
 		//StartCoroutine("Loading");
+		Pan.Play ();
 		Application.LoadLevel("cameraRA"); //on charge la scène de jeu
 	}
 

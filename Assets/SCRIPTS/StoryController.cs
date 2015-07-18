@@ -59,8 +59,7 @@ public class StoryController : MonoBehaviour {
 			bandeauLustre.SetActive (true);
 			oneTime2 = true;
 		}
-		
-		Debug.Log (bandeauLustre.transform.eulerAngles.x);
+
 		if (bandeauLustre.transform.eulerAngles.x <= 180.0f)
 			bandeauLustre.transform.Rotate(Vector3.left * Time.deltaTime*100);
 

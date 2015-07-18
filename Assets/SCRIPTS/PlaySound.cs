@@ -4,6 +4,7 @@ using System.Collections;
 public class PlaySound : MonoBehaviour {
 
 	public AudioSource audioSound;
+	public float delay=2.0f;
 	
 	IEnumerator Delay(float seconds)
 	{
@@ -22,7 +23,7 @@ public class PlaySound : MonoBehaviour {
 	{
 		if (renderer.isVisible) 
 		{
-			Delay(2.0f);
+			Delay(delay);
 		}
 
 	

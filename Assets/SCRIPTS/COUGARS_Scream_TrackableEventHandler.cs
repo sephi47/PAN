@@ -13,7 +13,7 @@ using Vuforia;
 /// <summary>
 /// A custom handler that implements the ITrackableEventHandler interface.
 /// </summary>
-public class Cougars_TrackableEventHandler : MonoBehaviour,
+public class COUGARS_Scream_TrackableEventHandler : MonoBehaviour,
 ITrackableEventHandler
 {
 	#region PRIVATE_MEMBER_VARIABLES
@@ -25,6 +25,7 @@ ITrackableEventHandler
 	#region PUBLIC_MEMBER_VARIABLES
 	
 	public AudioSource bruitage;
+	public UiImage bandeau;
 	
 	#endregion // PUBLIC_MEMBER_VARIABLES
 	
@@ -99,6 +100,7 @@ ITrackableEventHandler
 		//Handheld.Vibrate ();
 
 		//texteTrouve.enabled = false;
+		bandeau.gameObject.SetActive (false);
 		bruitage.Play ();
 	}
 

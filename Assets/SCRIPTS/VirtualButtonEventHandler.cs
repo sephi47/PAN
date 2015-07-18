@@ -13,7 +13,8 @@ IVirtualButtonEventHandler
 
 
 	//public UiImage bandeau;
-	public UiImage bandeau;
+	public UiImage bandeauCougars;
+	public UiImage bandeauRasta;
 
 	#region UNITY_MONOBEHAVIOUR_METHODS
 	
@@ -51,17 +52,17 @@ IVirtualButtonEventHandler
 				
 				//StartCoroutine(PlayAnim());
 				Handheld.PlayFullScreenMovie ("animation_zoom_bar.mp4", Color.black, FullScreenMovieControlMode.Hidden, FullScreenMovieScalingMode.AspectFit);
-				bandeau.gameObject.SetActive(true);
-				Debug.Log("bandeau is active = "+ bandeau.IsActive());
+				bandeauRasta.gameObject.SetActive(true);
+				Debug.Log("bandeau is active = "+ bandeauRasta.IsActive());
 				break;
 
 			case "cougars_button":
 			
-			//StartCoroutine(PlayAnim());
-			Handheld.PlayFullScreenMovie ("animation_zoom_bar_cougars.mp4", Color.black, FullScreenMovieControlMode.Hidden, FullScreenMovieScalingMode.AspectFit);
-			bandeau.gameObject.SetActive(true);
-			Debug.Log("bandeau is active = "+ bandeau.IsActive());
-			break;
+				//StartCoroutine(PlayAnim());
+				Handheld.PlayFullScreenMovie ("animation_zoom_bar_cougars.mp4", Color.black, FullScreenMovieControlMode.Hidden, FullScreenMovieScalingMode.AspectFit);
+				bandeauCougars.gameObject.SetActive(true);
+				Debug.Log("bandeau is active = "+ bandeauCougars.IsActive());
+				break;
 		}
 	}
 

@@ -20,6 +20,13 @@ namespace Vuforia
     
         #endregion // PRIVATE_MEMBER_VARIABLES
 
+		[SerializeField]
+		private bool isDetected;
+
+		public bool IsDetected
+		{
+			get { return this.isDetected;}
+		}
 
 
         #region UNTIY_MONOBEHAVIOUR_METHODS
@@ -31,6 +38,7 @@ namespace Vuforia
             {
                 mTrackableBehaviour.RegisterTrackableEventHandler(this);
             }
+			isDetected = false;
         }
 
         #endregion // UNTIY_MONOBEHAVIOUR_METHODS
@@ -68,6 +76,7 @@ namespace Vuforia
 
         private void OnTrackingFound()
         {
+			isDetected = true;
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 
@@ -89,6 +98,7 @@ namespace Vuforia
 
         private void OnTrackingLost()
         {
+			isDetected = false;
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 

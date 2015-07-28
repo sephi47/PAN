@@ -21,7 +21,14 @@ ITrackableEventHandler
 	#endregion // PRIVATE_MEMBER_VARIABLES
 	
 	#region PUBLIC_MEMBER_VARIABLES
+	[SerializeField]
+	private bool isDetected;
 	
+	public bool IsDetected
+	{
+		get { return this.isDetected;}
+	}
+
 	public AudioSource voixOff_Bam;
 	
 	#endregion // PUBLIC_MEMBER_VARIABLES
@@ -32,6 +39,7 @@ ITrackableEventHandler
 	
 	void Start()
 	{
+		isDetected = false;
 		mTrackableBehaviour = GetComponent<TrackableBehaviour>();
 		if (mTrackableBehaviour)
 		{
@@ -74,6 +82,7 @@ ITrackableEventHandler
 	
 	private void OnTrackingFound()
 	{
+		isDetected = true;
 		Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
 		Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 		
@@ -108,6 +117,7 @@ ITrackableEventHandler
 	
 	private void OnTrackingLost()
 	{
+		isDetected = false;
 		Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
 		Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 		

@@ -7,11 +7,9 @@ using Vuforia;
 /// contains the logic to swap materials for the teapot model depending on what 
 /// virtual button has been pressed.
 /// </summary>
-public class VirtualButtonEventHandler : MonoBehaviour,
+public class Cougars_VirtualButtonEventHandler : MonoBehaviour,
 IVirtualButtonEventHandler
 {
-
-
 	public AudioSource voixOff_Bar;
 	public AudioSource dialogueAveugle;
 	public AudioSource dialogueRasta;
@@ -19,14 +17,10 @@ IVirtualButtonEventHandler
 	public AudioSource dialogueBarman;
 	public AudioSource dialogueMecBourre;
 	public GameObject cougarsContour;
-	public GameObject rastaContour;
-	public GameObject barContour;
-	public GameObject aveugleContour;
 
 
 	//public UiImage bandeau;
 	public UiImage bandeauCougars;
-	public UiImage bandeauRasta;
 
 	#region UNITY_MONOBEHAVIOUR_METHODS
 	
@@ -55,7 +49,10 @@ IVirtualButtonEventHandler
 	{
 		Debug.Log("OnButtonPressed::" + vb.VirtualButtonName);
 
-
+		/*if (!IsValid())
+		{
+			return;
+		}*/
 
 		if (dialogueAveugle.isPlaying)
 		{
@@ -68,71 +65,39 @@ IVirtualButtonEventHandler
 				voixOff_Bar.Stop();
 			
 		}
-
-
 		// Add the material corresponding to this virtual button
 		// to the active material list:
 		switch (vb.VirtualButtonName)
 		{
-			case "rasta_button":
-				//StartCoroutine(PlayAnim());
-				Handheld.PlayFullScreenMovie ("animation_zoom_bar.mp4", Color.black, FullScreenMovieControlMode.Hidden, FullScreenMovieScalingMode.AspectFit);
-				bandeauRasta.gameObject.SetActive(true);
-				Debug.Log("bandeau is active = "+ bandeauRasta.IsActive());
-				break;
-			/*
 			case "cougars_button":
-
+			
 				//StartCoroutine(PlayAnim());
 				Handheld.PlayFullScreenMovie ("animation_zoom_bar_cougars.mp4", Color.black, FullScreenMovieControlMode.Hidden, FullScreenMovieScalingMode.AspectFit);
 				bandeauCougars.gameObject.SetActive(true);
 				Debug.Log("bandeau is active = "+ bandeauCougars.IsActive());
 				break;
-*/
+
 			default:
 				break;
 		}
 	}
-
-
 	
 
-	
 	/// <summary>
 	/// Called when the virtual button has just been released:
 	/// </summary>
 	public void OnButtonReleased(VirtualButtonAbstractBehaviour vb)
 	{
-	/*	if (!IsValid())
-		{
-			return;
-		}*/
-
-		/*switch (vb.VirtualButtonName)
-		{
-		case "rasta_button":
-			
-			//StartCoroutine(PlayAnim());
-			Handheld.PlayFullScreenMovie ("animation_zoom_bar.mp4", Color.black, FullScreenMovieControlMode.Hidden, FullScreenMovieScalingMode.AspectFit);
-			bandeauRasta.gameObject.SetActive(true);
-			Debug.Log("bandeau is active = "+ bandeauRasta.IsActive());
-			break;
-			
-		case "cougars_button":
-			
-			//StartCoroutine(PlayAnim());
-			Handheld.PlayFullScreenMovie ("animation_zoom_bar_cougars.mp4", Color.black, FullScreenMovieControlMode.Hidden, FullScreenMovieScalingMode.AspectFit);
-			bandeauCougars.gameObject.SetActive(true);
-			Debug.Log("bandeau is active = "+ bandeauCougars.IsActive());
-			break;
-		}*/
-
-
 	}
 
 
+	/*private bool IsValid()
+	{
+		// Check the materials and teapot have been set:
+		return 	cougarsContour != null && 
+			cougarsContour.renderer.isVisible;
+	}*/
 
-	
 	
 	#endregion // PUBLIC_METHODS
 }

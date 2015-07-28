@@ -19,9 +19,18 @@ namespace Vuforia
 		
 		private bool voixOffAlreadyPlays;
 
-        private TrackableBehaviour mTrackableBehaviour;
+
+		private TrackableBehaviour mTrackableBehaviour;
     
         #endregion // PRIVATE_MEMBER_VARIABLES
+
+		[SerializeField]
+		private bool isDetected;
+		
+		public bool IsDetected
+		{
+			get { return this.isDetected;}
+		}
 
 		public AudioSource voixOff_Bar;
 		public AudioSource dialogueAveugle;
@@ -34,7 +43,7 @@ namespace Vuforia
     
         void Start()
         {
-			
+			isDetected = false;
 			voixOffAlreadyPlays = false;
             mTrackableBehaviour = GetComponent<TrackableBehaviour>();
             if (mTrackableBehaviour)
@@ -78,6 +87,7 @@ namespace Vuforia
 
         private void OnTrackingFound()
         {
+			isDetected = true;
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 
@@ -117,6 +127,7 @@ namespace Vuforia
 
         private void OnTrackingLost()
         {
+			isDetected = false;
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 

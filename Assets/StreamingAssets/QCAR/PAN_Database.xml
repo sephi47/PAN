@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="BarMan_Bar" size="15.000000 6.531531" />
+    <ImageTarget name="Aveugles_Bar" size="10.000000 4.764493" />
+    <ImageTarget name="mecBourre_Bar" size="10.000000 12.071307" />
+    <ImageTarget name="Cougars_bar" size="10.000000 8.937569" />
+    <ImageTarget name="Rasta_BAR" size="10.000000 12.168224" />
     <ImageTarget name="MecBourrePage_cougar" size="14.000000 8.013683" />
     <ImageTarget name="cougars_page10-11" size="28.000000 16.209686" />
     <ImageTarget name="noir24" size="130.000000 71.220627" />
